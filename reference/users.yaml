@@ -160,6 +160,12 @@ paths:
                   $ref: '#/components/schemas/User'
         '400':
           description: Bad Request
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: User name
     parameters: []
 components:
   schemas:
