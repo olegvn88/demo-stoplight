@@ -89,6 +89,21 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
+    put:
+      summary: ''
+      operationId: put-users-userId
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
   /user:
     post:
       summary: Create New User
@@ -111,6 +126,31 @@ paths:
                     emailVerified: false
                     createDate: '2020-11-18'
             application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/User'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties: {}
+            text/html:
+              schema:
+                type: object
+                properties: {}
+            text/plain:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
@@ -136,7 +176,6 @@ paths:
                 - firstName
                 - lastName
                 - email
-                - dateOfBirth
             examples:
               Create User Bob Fellow:
                 value:
