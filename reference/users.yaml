@@ -136,10 +136,10 @@ paths:
           description: Email Already Taken
       requestBody:
         content:
-          application/xml:
+          application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/json:
+          application/xml:
             schema:
               $ref: '#/components/schemas/User'
         description: Post the necessary fields for the API to create a new user.
