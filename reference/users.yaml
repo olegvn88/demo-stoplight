@@ -114,8 +114,7 @@ paths:
           content:
             application/xml:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/User'
             multipart/form-data:
               schema:
                 type: object
