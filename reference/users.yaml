@@ -147,8 +147,8 @@ paths:
       summary: Get users list
       operationId: Get users list
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -158,6 +158,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
     parameters: []
 components:
   schemas:
