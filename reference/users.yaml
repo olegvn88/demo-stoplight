@@ -5,16 +5,15 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{userId}':
+  '/users/{id}':
     parameters:
       - schema:
-          type: integer
-        name: userId
+          type: string
+        name: id
         in: path
         required: true
-        description: Id of an existing user.
     get:
-      summary: Get User Info by User ID
+      summary: Get Contacts Info by User ID
       tags: []
       responses:
         '200':
@@ -89,7 +88,7 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
-  /user:
+  /users:
     post:
       summary: Create New User
       operationId: post-user
@@ -156,6 +155,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    parameters: []
 components:
   schemas:
     User:
@@ -215,3 +223,11 @@ components:
       required:
         - street1
         - city
+    Tasks:
+      title: Tasks
+      type: object
+      properties:
+        description:
+          type: string
+        '':
+          type: string
