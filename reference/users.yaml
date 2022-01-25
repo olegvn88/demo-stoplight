@@ -108,58 +108,38 @@ paths:
     post:
       summary: Create New User
       operationId: Create a new user
-      responses:
-        '201':
-          description: Created
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties: {}
-            text/html:
-              schema:
-                type: object
-                properties: {}
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/User'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
+      description: Create a new user.
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
-    get:
-      summary: Get users list
-      operationId: Get users list
       responses:
         '201':
           description: Created
+          headers: {}
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-            application/xml:
+    get:
+      summary: Get users list
+      operationId: Get users list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
         '400':
           description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
       parameters:
         - schema:
             type: string
