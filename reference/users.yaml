@@ -112,9 +112,6 @@ paths:
         '201':
           description: Created
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
             multipart/form-data:
               schema:
                 type: object
@@ -127,6 +124,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
             application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
